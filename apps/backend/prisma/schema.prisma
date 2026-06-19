@@ -14,7 +14,8 @@ datasource db {
 model User{
   id     String   @id   @default(uuid())
   username String
-  passwaord String
+  email    String
+  password String
   avatars  Avatar[]
   avatarvideos   AvatarVideo[]
 }
@@ -23,6 +24,7 @@ model Avatar{
   userId   String
   name     String  
   avatarimages AvatarImage[]
+  avatarvideo  AvatarVideo[]
   avatarvideorefrence   AvatarVideoRefrence[]
   user     User @relation(fields: [userId] , references: [id])
 }
@@ -44,6 +46,7 @@ model AvatarVideo {
   width       String
   height      String
   status      AvatarVideoStatus
+  avatarvideo Avatar  @relation(fields: [avatarId], references: [id])
   avatarvideorefrence AvatarVideoRefrence[]
   user     User @relation(fields: [userId] , references: [id])
 }
