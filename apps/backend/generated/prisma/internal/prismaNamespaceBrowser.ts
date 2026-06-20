@@ -78,7 +78,8 @@ export const UserScalarFieldEnum = {
   id: 'id',
   username: 'username',
   email: 'email',
-  password: 'password'
+  password: 'password',
+  createdAt: 'createdAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -87,7 +88,8 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const AvatarScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  name: 'name'
+  name: 'name',
+  createdAt: 'createdAt'
 } as const
 
 export type AvatarScalarFieldEnum = (typeof AvatarScalarFieldEnum)[keyof typeof AvatarScalarFieldEnum]
@@ -97,7 +99,10 @@ export const AvatarImageScalarFieldEnum = {
   id: 'id',
   avatarid: 'avatarid',
   type: 'type',
-  url: 'url'
+  url: 'url',
+  aspect_ratio: 'aspect_ratio',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AvatarImageScalarFieldEnum = (typeof AvatarImageScalarFieldEnum)[keyof typeof AvatarImageScalarFieldEnum]
@@ -110,9 +115,10 @@ export const AvatarVideoScalarFieldEnum = {
   prompt: 'prompt',
   startFrame: 'startFrame',
   endFrame: 'endFrame',
-  width: 'width',
-  height: 'height',
-  status: 'status'
+  aspect_ratio: 'aspect_ratio',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AvatarVideoScalarFieldEnum = (typeof AvatarVideoScalarFieldEnum)[keyof typeof AvatarVideoScalarFieldEnum]

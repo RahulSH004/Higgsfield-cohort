@@ -29,6 +29,17 @@ export type StringFilter<$PrismaModel = never> = {
   not?: Prisma.NestedStringFilter<$PrismaModel> | string
 }
 
+export type DateTimeFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeFilter<$PrismaModel> | Date | string
+}
+
 export type StringWithAggregatesFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -47,11 +58,32 @@ export type StringWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedStringFilter<$PrismaModel>
 }
 
+export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
 export type EnumAvatarImageTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.AvatarImageType | Prisma.EnumAvatarImageTypeFieldRefInput<$PrismaModel>
   in?: $Enums.AvatarImageType[] | Prisma.ListEnumAvatarImageTypeFieldRefInput<$PrismaModel>
   notIn?: $Enums.AvatarImageType[] | Prisma.ListEnumAvatarImageTypeFieldRefInput<$PrismaModel>
   not?: Prisma.NestedEnumAvatarImageTypeFilter<$PrismaModel> | $Enums.AvatarImageType
+}
+
+export type EnumAspectratioFilter<$PrismaModel = never> = {
+  equals?: $Enums.Aspectratio | Prisma.EnumAspectratioFieldRefInput<$PrismaModel>
+  in?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAspectratioFilter<$PrismaModel> | $Enums.Aspectratio
 }
 
 export type EnumAvatarImageTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -62,6 +94,16 @@ export type EnumAvatarImageTypeWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAvatarImageTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAvatarImageTypeFilter<$PrismaModel>
+}
+
+export type EnumAspectratioWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Aspectratio | Prisma.EnumAspectratioFieldRefInput<$PrismaModel>
+  in?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAspectratioWithAggregatesFilter<$PrismaModel> | $Enums.Aspectratio
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAspectratioFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAspectratioFilter<$PrismaModel>
 }
 
 export type StringNullableFilter<$PrismaModel = never> = {
@@ -133,6 +175,17 @@ export type NestedStringFilter<$PrismaModel = never> = {
   not?: Prisma.NestedStringFilter<$PrismaModel> | string
 }
 
+export type NestedDateTimeFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeFilter<$PrismaModel> | Date | string
+}
+
 export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -161,11 +214,32 @@ export type NestedIntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
+export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
 export type NestedEnumAvatarImageTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.AvatarImageType | Prisma.EnumAvatarImageTypeFieldRefInput<$PrismaModel>
   in?: $Enums.AvatarImageType[] | Prisma.ListEnumAvatarImageTypeFieldRefInput<$PrismaModel>
   notIn?: $Enums.AvatarImageType[] | Prisma.ListEnumAvatarImageTypeFieldRefInput<$PrismaModel>
   not?: Prisma.NestedEnumAvatarImageTypeFilter<$PrismaModel> | $Enums.AvatarImageType
+}
+
+export type NestedEnumAspectratioFilter<$PrismaModel = never> = {
+  equals?: $Enums.Aspectratio | Prisma.EnumAspectratioFieldRefInput<$PrismaModel>
+  in?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAspectratioFilter<$PrismaModel> | $Enums.Aspectratio
 }
 
 export type NestedEnumAvatarImageTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -176,6 +250,16 @@ export type NestedEnumAvatarImageTypeWithAggregatesFilter<$PrismaModel = never> 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAvatarImageTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAvatarImageTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumAspectratioWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Aspectratio | Prisma.EnumAspectratioFieldRefInput<$PrismaModel>
+  in?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Aspectratio[] | Prisma.ListEnumAspectratioFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAspectratioWithAggregatesFilter<$PrismaModel> | $Enums.Aspectratio
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAspectratioFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAspectratioFilter<$PrismaModel>
 }
 
 export type NestedStringNullableFilter<$PrismaModel = never> = {

@@ -29,6 +29,9 @@ export type AvatarImageMinAggregateOutputType = {
   avatarid: string | null
   type: $Enums.AvatarImageType | null
   url: string | null
+  aspect_ratio: $Enums.Aspectratio | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type AvatarImageMaxAggregateOutputType = {
@@ -36,6 +39,9 @@ export type AvatarImageMaxAggregateOutputType = {
   avatarid: string | null
   type: $Enums.AvatarImageType | null
   url: string | null
+  aspect_ratio: $Enums.Aspectratio | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type AvatarImageCountAggregateOutputType = {
@@ -43,6 +49,9 @@ export type AvatarImageCountAggregateOutputType = {
   avatarid: number
   type: number
   url: number
+  aspect_ratio: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -52,6 +61,9 @@ export type AvatarImageMinAggregateInputType = {
   avatarid?: true
   type?: true
   url?: true
+  aspect_ratio?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type AvatarImageMaxAggregateInputType = {
@@ -59,6 +71,9 @@ export type AvatarImageMaxAggregateInputType = {
   avatarid?: true
   type?: true
   url?: true
+  aspect_ratio?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type AvatarImageCountAggregateInputType = {
@@ -66,6 +81,9 @@ export type AvatarImageCountAggregateInputType = {
   avatarid?: true
   type?: true
   url?: true
+  aspect_ratio?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -146,6 +164,9 @@ export type AvatarImageGroupByOutputType = {
   avatarid: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt: Date
+  updatedAt: Date
   _count: AvatarImageCountAggregateOutputType | null
   _min: AvatarImageMinAggregateOutputType | null
   _max: AvatarImageMaxAggregateOutputType | null
@@ -174,6 +195,9 @@ export type AvatarImageWhereInput = {
   avatarid?: Prisma.StringFilter<"AvatarImage"> | string
   type?: Prisma.EnumAvatarImageTypeFilter<"AvatarImage"> | $Enums.AvatarImageType
   url?: Prisma.StringFilter<"AvatarImage"> | string
+  aspect_ratio?: Prisma.EnumAspectratioFilter<"AvatarImage"> | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFilter<"AvatarImage"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"AvatarImage"> | Date | string
   avatar?: Prisma.XOR<Prisma.AvatarScalarRelationFilter, Prisma.AvatarWhereInput>
 }
 
@@ -182,6 +206,9 @@ export type AvatarImageOrderByWithRelationInput = {
   avatarid?: Prisma.SortOrder
   type?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  aspect_ratio?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   avatar?: Prisma.AvatarOrderByWithRelationInput
 }
 
@@ -193,6 +220,9 @@ export type AvatarImageWhereUniqueInput = Prisma.AtLeast<{
   avatarid?: Prisma.StringFilter<"AvatarImage"> | string
   type?: Prisma.EnumAvatarImageTypeFilter<"AvatarImage"> | $Enums.AvatarImageType
   url?: Prisma.StringFilter<"AvatarImage"> | string
+  aspect_ratio?: Prisma.EnumAspectratioFilter<"AvatarImage"> | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFilter<"AvatarImage"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"AvatarImage"> | Date | string
   avatar?: Prisma.XOR<Prisma.AvatarScalarRelationFilter, Prisma.AvatarWhereInput>
 }, "id">
 
@@ -201,6 +231,9 @@ export type AvatarImageOrderByWithAggregationInput = {
   avatarid?: Prisma.SortOrder
   type?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  aspect_ratio?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.AvatarImageCountOrderByAggregateInput
   _max?: Prisma.AvatarImageMaxOrderByAggregateInput
   _min?: Prisma.AvatarImageMinOrderByAggregateInput
@@ -214,12 +247,18 @@ export type AvatarImageScalarWhereWithAggregatesInput = {
   avatarid?: Prisma.StringWithAggregatesFilter<"AvatarImage"> | string
   type?: Prisma.EnumAvatarImageTypeWithAggregatesFilter<"AvatarImage"> | $Enums.AvatarImageType
   url?: Prisma.StringWithAggregatesFilter<"AvatarImage"> | string
+  aspect_ratio?: Prisma.EnumAspectratioWithAggregatesFilter<"AvatarImage"> | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"AvatarImage"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"AvatarImage"> | Date | string
 }
 
 export type AvatarImageCreateInput = {
   id?: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt?: Date | string
+  updatedAt?: Date | string
   avatar: Prisma.AvatarCreateNestedOneWithoutAvatarimagesInput
 }
 
@@ -228,12 +267,18 @@ export type AvatarImageUncheckedCreateInput = {
   avatarid: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AvatarImageUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarimagesNestedInput
 }
 
@@ -242,6 +287,9 @@ export type AvatarImageUncheckedUpdateInput = {
   avatarid?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AvatarImageCreateManyInput = {
@@ -249,12 +297,18 @@ export type AvatarImageCreateManyInput = {
   avatarid: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AvatarImageUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AvatarImageUncheckedUpdateManyInput = {
@@ -262,6 +316,9 @@ export type AvatarImageUncheckedUpdateManyInput = {
   avatarid?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AvatarImageListRelationFilter = {
@@ -279,6 +336,9 @@ export type AvatarImageCountOrderByAggregateInput = {
   avatarid?: Prisma.SortOrder
   type?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  aspect_ratio?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AvatarImageMaxOrderByAggregateInput = {
@@ -286,6 +346,9 @@ export type AvatarImageMaxOrderByAggregateInput = {
   avatarid?: Prisma.SortOrder
   type?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  aspect_ratio?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AvatarImageMinOrderByAggregateInput = {
@@ -293,6 +356,9 @@ export type AvatarImageMinOrderByAggregateInput = {
   avatarid?: Prisma.SortOrder
   type?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  aspect_ratio?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type AvatarImageCreateNestedManyWithoutAvatarInput = {
@@ -341,16 +407,26 @@ export type EnumAvatarImageTypeFieldUpdateOperationsInput = {
   set?: $Enums.AvatarImageType
 }
 
+export type EnumAspectratioFieldUpdateOperationsInput = {
+  set?: $Enums.Aspectratio
+}
+
 export type AvatarImageCreateWithoutAvatarInput = {
   id?: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AvatarImageUncheckedCreateWithoutAvatarInput = {
   id?: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AvatarImageCreateOrConnectWithoutAvatarInput = {
@@ -387,30 +463,45 @@ export type AvatarImageScalarWhereInput = {
   avatarid?: Prisma.StringFilter<"AvatarImage"> | string
   type?: Prisma.EnumAvatarImageTypeFilter<"AvatarImage"> | $Enums.AvatarImageType
   url?: Prisma.StringFilter<"AvatarImage"> | string
+  aspect_ratio?: Prisma.EnumAspectratioFilter<"AvatarImage"> | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFilter<"AvatarImage"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"AvatarImage"> | Date | string
 }
 
 export type AvatarImageCreateManyAvatarInput = {
   id?: string
   type: $Enums.AvatarImageType
   url: string
+  aspect_ratio: $Enums.Aspectratio
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type AvatarImageUpdateWithoutAvatarInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AvatarImageUncheckedUpdateWithoutAvatarInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type AvatarImageUncheckedUpdateManyWithoutAvatarInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumAvatarImageTypeFieldUpdateOperationsInput | $Enums.AvatarImageType
   url?: Prisma.StringFieldUpdateOperationsInput | string
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -420,6 +511,9 @@ export type AvatarImageSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   avatarid?: boolean
   type?: boolean
   url?: boolean
+  aspect_ratio?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["avatarImage"]>
 
@@ -428,6 +522,9 @@ export type AvatarImageSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   avatarid?: boolean
   type?: boolean
   url?: boolean
+  aspect_ratio?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["avatarImage"]>
 
@@ -436,6 +533,9 @@ export type AvatarImageSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   avatarid?: boolean
   type?: boolean
   url?: boolean
+  aspect_ratio?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["avatarImage"]>
 
@@ -444,9 +544,12 @@ export type AvatarImageSelectScalar = {
   avatarid?: boolean
   type?: boolean
   url?: boolean
+  aspect_ratio?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type AvatarImageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "avatarid" | "type" | "url", ExtArgs["result"]["avatarImage"]>
+export type AvatarImageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "avatarid" | "type" | "url" | "aspect_ratio" | "createdAt" | "updatedAt", ExtArgs["result"]["avatarImage"]>
 export type AvatarImageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
 }
@@ -467,6 +570,9 @@ export type $AvatarImagePayload<ExtArgs extends runtime.Types.Extensions.Interna
     avatarid: string
     type: $Enums.AvatarImageType
     url: string
+    aspect_ratio: $Enums.Aspectratio
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["avatarImage"]>
   composites: {}
 }
@@ -895,6 +1001,9 @@ export interface AvatarImageFieldRefs {
   readonly avatarid: Prisma.FieldRef<"AvatarImage", 'String'>
   readonly type: Prisma.FieldRef<"AvatarImage", 'AvatarImageType'>
   readonly url: Prisma.FieldRef<"AvatarImage", 'String'>
+  readonly aspect_ratio: Prisma.FieldRef<"AvatarImage", 'Aspectratio'>
+  readonly createdAt: Prisma.FieldRef<"AvatarImage", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"AvatarImage", 'DateTime'>
 }
     
 

@@ -24,3 +24,13 @@ export const AvatarVideoStatus = {
 } as const
 
 export type AvatarVideoStatus = (typeof AvatarVideoStatus)[keyof typeof AvatarVideoStatus]
+
+
+export const Aspectratio = {
+  SQUARE: 'SQUARE',
+  PORTRAIT: 'PORTRAIT',
+  LANDSCAPE: 'LANDSCAPE',
+  WIDE: 'WIDE'
+} as const
+
+export type Aspectratio = (typeof Aspectratio)[keyof typeof Aspectratio]

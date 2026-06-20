@@ -210,7 +210,7 @@ export type AvatarVideoRefrenceScalarWhereWithAggregatesInput = {
 export type AvatarVideoRefrenceCreateInput = {
   id?: string
   avatar: Prisma.AvatarCreateNestedOneWithoutAvatarvideorefrenceInput
-  avatarvideo: Prisma.AvatarVideoCreateNestedOneWithoutAvatarvideorefrenceInput
+  avatarvideo: Prisma.AvatarVideoCreateNestedOneWithoutAvatarVideoRefrenceInput
 }
 
 export type AvatarVideoRefrenceUncheckedCreateInput = {
@@ -222,7 +222,7 @@ export type AvatarVideoRefrenceUncheckedCreateInput = {
 export type AvatarVideoRefrenceUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarvideorefrenceNestedInput
-  avatarvideo?: Prisma.AvatarVideoUpdateOneRequiredWithoutAvatarvideorefrenceNestedInput
+  avatarvideo?: Prisma.AvatarVideoUpdateOneRequiredWithoutAvatarVideoRefrenceNestedInput
 }
 
 export type AvatarVideoRefrenceUncheckedUpdateInput = {
@@ -361,7 +361,7 @@ export type AvatarVideoRefrenceUncheckedUpdateManyWithoutAvatarvideoNestedInput 
 
 export type AvatarVideoRefrenceCreateWithoutAvatarInput = {
   id?: string
-  avatarvideo: Prisma.AvatarVideoCreateNestedOneWithoutAvatarvideorefrenceInput
+  avatarvideo: Prisma.AvatarVideoCreateNestedOneWithoutAvatarVideoRefrenceInput
 }
 
 export type AvatarVideoRefrenceUncheckedCreateWithoutAvatarInput = {
@@ -447,7 +447,7 @@ export type AvatarVideoRefrenceCreateManyAvatarInput = {
 
 export type AvatarVideoRefrenceUpdateWithoutAvatarInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  avatarvideo?: Prisma.AvatarVideoUpdateOneRequiredWithoutAvatarvideorefrenceNestedInput
+  avatarvideo?: Prisma.AvatarVideoUpdateOneRequiredWithoutAvatarVideoRefrenceNestedInput
 }
 
 export type AvatarVideoRefrenceUncheckedUpdateWithoutAvatarInput = {

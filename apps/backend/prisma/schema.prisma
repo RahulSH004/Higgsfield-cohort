@@ -14,8 +14,9 @@ datasource db {
 model User{
   id     String   @id   @default(uuid())
   username String
-  email    String
+  email    String  @unique
   password String
+  createdAt DateTime  @default(now())
   avatars  Avatar[]
   avatarvideos   AvatarVideo[]
 }
@@ -23,9 +24,10 @@ model Avatar{
   id   String  @id  @default(cuid())
   userId   String
   name     String  
+  createdAt DateTime  @default(now())
   avatarimages AvatarImage[]
   avatarvideo  AvatarVideo[]
-  avatarvideorefrence   AvatarVideoRefrence[]
+  avatarvideorefrence   AvatarVideoReference[]
   user     User @relation(fields: [userId] , references: [id])
 }
 model AvatarImage{
@@ -33,6 +35,9 @@ model AvatarImage{
   avatarid   String
   type       AvatarImageType
   url       String
+  aspect_ratio  Aspectratio
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   avatar    Avatar @relation(fields: [avatarid] , references: [id])
 }
 
@@ -43,15 +48,16 @@ model AvatarVideo {
   prompt    String
   startFrame  String?
   endFrame    String?
-  width       String
-  height      String
+  aspect_ratio  Aspectratio
   status      AvatarVideoStatus
-  avatarvideo Avatar  @relation(fields: [avatarId], references: [id])
-  avatarvideorefrence AvatarVideoRefrence[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  avatar Avatar  @relation(fields: [avatarId], references: [id])
+  avatarVideoRefrence AvatarVideoReference[]
   user     User @relation(fields: [userId] , references: [id])
 }
 
-model AvatarVideoRefrence {
+model AvatarVideoReference {
   id      String   @id   @default(cuid())
   avatarvideoId   String
   avatarId     String
@@ -67,4 +73,10 @@ enum AvatarVideoStatus {
   PENDING
   SUCCESS
   ERROR
+}
+enum Aspectratio {
+  SQUARE
+  PORTRAIT
+  LANDSCAPE
+  WIDE
 }
