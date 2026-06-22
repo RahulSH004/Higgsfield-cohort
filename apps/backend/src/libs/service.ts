@@ -21,17 +21,17 @@ const ALLOWED_IMAGE_TYPES = [
 ];
 
 
-export type upload = 'avatar' |'images' | 'videos'
+export type upload = 'avatars' |'images' | 'videos'
 
 export async function getPresignedUploadUrl({
     folder,
-    userid,
-    avatarid,
+    userId,
+    avatarId,
     contentType,
 }: {
     folder: upload,
-    userid: string,
-    avatarid: string,
+    userId: string,
+    avatarId: string,
     contentType: string,
 }){
     try{
@@ -39,7 +39,7 @@ export async function getPresignedUploadUrl({
             throw new AppError(400, 'Invalid content type');
         }
         const ext = contentType.split('/')[1]
-        const key = `${folder}/${userid}/${avatarid}/${uuidv4()}.${ext}`
+        const key = `${folder}/${userId}/${avatarId}/${uuidv4()}.${ext}`
 
         const command = new PutObjectCommand({
             Bucket: BUCKET_NAME,

@@ -5,7 +5,6 @@ export const AvatarCreateSchema = z.object({
 })
 
 export const presignSchema = z.object({
-    avatarid:    z.string(),
     contentType: z.string().refine(
       val => ['image/jpeg', 'image/png', 'image/webp'].includes(val),
       { message: 'contentType must be jpeg, png, or webp' }
@@ -14,7 +13,6 @@ export const presignSchema = z.object({
   })
 
 export const confirmUploadSchema = z.object({
-    avatarid: z.string(),
     key: z.string(),
     type: z.enum(['USER', 'MODEL']),
     aspect_ratio: z.enum(['SQUARE', 'PORTRAIT', 'LANDSCAPE', 'WIDE']),

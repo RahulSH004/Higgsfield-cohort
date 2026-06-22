@@ -1,11 +1,24 @@
 import { prisma } from "../../../db";
 import { ConfirmUploadInput, CreateAvatarInput, PresignInput } from "./avatar_schema";
 import { AppError } from "../../middleware/error.middleware";
-import { getPresignedUploadUrl, getPublicUrl } from "../../libs/service";
+import { deleteS3Object, getPresignedUploadUrl, getPublicUrl } from "../../libs/service";
+
+
+export async function assertAvatarOwner(avatarId: string, userId: string){
+    const avatar = await prisma.avatar.findUnique({
+        where: {
+            id: avatarId,
+        }
+        
+    })
+    if(!avatar || avatar.userId !== userId){
+        throw new AppError(404 , 'Avatar not found')
+    }
+    return avatar;
+} 
 
 
 export async function createAvatar(userId: string,input: CreateAvatarInput){
-    try{
         const avatar = await prisma.avatar.create({
             data:{
                 name: input.name,
@@ -18,54 +31,32 @@ export async function createAvatar(userId: string,input: CreateAvatarInput){
             }
         })
         return avatar;
-    }catch(error){
-        throw new AppError(500, 'Failed to create avatar');
-    }
-}
-
-export async function requestImageUploadUrl(userId: string,input: PresignInput){
-
-    try{
-        const avatar = await prisma.avatar.findUnique({
-            where:{
-                userId: userId,
-                id: input.avatarid,
-            }
-        })
-        if(!avatar){
-            throw new AppError(404, 'Avatar not found');
-        }
-
-        const {url, key} = await getPresignedUploadUrl({
-            folder: 'avatar',
-            userid: userId,
-            avatarid: input.avatarid,
-            contentType: input.contentType,
-        })
-        return {url, key};
-    }catch(error){
-        throw new AppError(500, 'Failed to request image upload url');
-    }
     
 }
 
-export async function confirmImageUpload(userId: string,input: ConfirmUploadInput){
-    try{
-        const avatar = await prisma.avatar.findUnique({
-            where:{
-                userId: userId,
-                id: input.avatarid,
-            }
+export async function requestImageUploadUrl(userId: string,avatarId:string,input: PresignInput){
+
+        await assertAvatarOwner(avatarId, userId)
+
+        const {url, key} = await getPresignedUploadUrl({
+            folder: 'avatars',
+            userId,
+            avatarId,
+            contentType: input.contentType,
         })
-        if(!avatar || avatar.userId !== userId) {
-            throw new AppError(404, 'Avatar Not Found')
-        }
+        return {uploadUrl: url, key};
+    
+}
+
+export async function confirmImageUpload(userId: string,avatarId:string,input: ConfirmUploadInput){
+    try{
+        await assertAvatarOwner(avatarId, userId)
 
         const publicUrl = await getPublicUrl(input.key)
 
         return await prisma.avatarImage.create({
             data: {
-                avatarid: input.avatarid,
+                avatarid: avatarId,
                 type: input.type,
                 url: publicUrl,
                 aspect_ratio: input.aspect_ratio
@@ -95,4 +86,31 @@ export async function getUserAvatars(userId: string) {
       },
       orderBy: { createdAt: 'desc' },
     })
+}
+
+export async function getAvatar(avatarId: string, userId: string) {
+    return assertAvatarOwner(avatarId, userId)
+  }
+
+export async function deleteAvatarImage(userId: string, avatarId:string, imageId: string){
+    await assertAvatarOwner(avatarId, userId)
+
+    const image = await prisma.avatarImage.findUnique({
+        where: {id: imageId}
+    })
+    if(!image || image.avatarid !== avatarId){
+        throw new AppError(404, "Image Not Found")
+    }
+    const key = image.url.split('.amazonaws.com/')[1] as string
+    await deleteS3Object(key)
+
+    await prisma.avatarImage.delete({
+        where:{
+            id: imageId
+        }
+    })
+    return {
+        deleted: true
+    }
+
 }
