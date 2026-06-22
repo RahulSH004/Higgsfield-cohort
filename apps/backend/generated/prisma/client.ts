@@ -62,7 +62,7 @@ export type AvatarImage = Prisma.AvatarImageModel
  */
 export type AvatarVideo = Prisma.AvatarVideoModel
 /**
- * Model AvatarVideoRefrence
+ * Model AvatarVideoReference
  * 
  */
-export type AvatarVideoRefrence = Prisma.AvatarVideoRefrenceModel
+export type AvatarVideoReference = Prisma.AvatarVideoReferenceModel

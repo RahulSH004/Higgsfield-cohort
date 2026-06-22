@@ -23,7 +23,7 @@ model User{
 model Avatar{
   id   String  @id  @default(cuid())
   userId   String
-  name     String  
+  name     String 
   createdAt DateTime  @default(now())
   avatarimages AvatarImage[]
   avatarvideo  AvatarVideo[]

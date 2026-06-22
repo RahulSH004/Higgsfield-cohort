@@ -55,7 +55,7 @@ export const ModelName = {
   Avatar: 'Avatar',
   AvatarImage: 'AvatarImage',
   AvatarVideo: 'AvatarVideo',
-  AvatarVideoRefrence: 'AvatarVideoRefrence'
+  AvatarVideoReference: 'AvatarVideoReference'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -124,13 +124,13 @@ export const AvatarVideoScalarFieldEnum = {
 export type AvatarVideoScalarFieldEnum = (typeof AvatarVideoScalarFieldEnum)[keyof typeof AvatarVideoScalarFieldEnum]
 
 
-export const AvatarVideoRefrenceScalarFieldEnum = {
+export const AvatarVideoReferenceScalarFieldEnum = {
   id: 'id',
   avatarvideoId: 'avatarvideoId',
   avatarId: 'avatarId'
 } as const
 
-export type AvatarVideoRefrenceScalarFieldEnum = (typeof AvatarVideoRefrenceScalarFieldEnum)[keyof typeof AvatarVideoRefrenceScalarFieldEnum]
+export type AvatarVideoReferenceScalarFieldEnum = (typeof AvatarVideoReferenceScalarFieldEnum)[keyof typeof AvatarVideoReferenceScalarFieldEnum]
 
 
 export const SortOrder = {

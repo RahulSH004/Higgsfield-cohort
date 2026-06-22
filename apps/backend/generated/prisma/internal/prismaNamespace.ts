@@ -388,7 +388,7 @@ export const ModelName = {
   Avatar: 'Avatar',
   AvatarImage: 'AvatarImage',
   AvatarVideo: 'AvatarVideo',
-  AvatarVideoRefrence: 'AvatarVideoRefrence'
+  AvatarVideoReference: 'AvatarVideoReference'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -404,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "avatar" | "avatarImage" | "avatarVideo" | "avatarVideoRefrence"
+    modelProps: "user" | "avatar" | "avatarImage" | "avatarVideo" | "avatarVideoReference"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -704,77 +704,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    AvatarVideoRefrence: {
-      payload: Prisma.$AvatarVideoRefrencePayload<ExtArgs>
-      fields: Prisma.AvatarVideoRefrenceFieldRefs
+    AvatarVideoReference: {
+      payload: Prisma.$AvatarVideoReferencePayload<ExtArgs>
+      fields: Prisma.AvatarVideoReferenceFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.AvatarVideoRefrenceFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload> | null
+          args: Prisma.AvatarVideoReferenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.AvatarVideoRefrenceFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>
+          args: Prisma.AvatarVideoReferenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>
         }
         findFirst: {
-          args: Prisma.AvatarVideoRefrenceFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload> | null
+          args: Prisma.AvatarVideoReferenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.AvatarVideoRefrenceFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>
+          args: Prisma.AvatarVideoReferenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>
         }
         findMany: {
-          args: Prisma.AvatarVideoRefrenceFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>[]
+          args: Prisma.AvatarVideoReferenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>[]
         }
         create: {
-          args: Prisma.AvatarVideoRefrenceCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>
+          args: Prisma.AvatarVideoReferenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>
         }
         createMany: {
-          args: Prisma.AvatarVideoRefrenceCreateManyArgs<ExtArgs>
+          args: Prisma.AvatarVideoReferenceCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.AvatarVideoRefrenceCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>[]
+          args: Prisma.AvatarVideoReferenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>[]
         }
         delete: {
-          args: Prisma.AvatarVideoRefrenceDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>
+          args: Prisma.AvatarVideoReferenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>
         }
         update: {
-          args: Prisma.AvatarVideoRefrenceUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>
+          args: Prisma.AvatarVideoReferenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>
         }
         deleteMany: {
-          args: Prisma.AvatarVideoRefrenceDeleteManyArgs<ExtArgs>
+          args: Prisma.AvatarVideoReferenceDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.AvatarVideoRefrenceUpdateManyArgs<ExtArgs>
+          args: Prisma.AvatarVideoReferenceUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.AvatarVideoRefrenceUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>[]
+          args: Prisma.AvatarVideoReferenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>[]
         }
         upsert: {
-          args: Prisma.AvatarVideoRefrenceUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoRefrencePayload>
+          args: Prisma.AvatarVideoReferenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AvatarVideoReferencePayload>
         }
         aggregate: {
-          args: Prisma.AvatarVideoRefrenceAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAvatarVideoRefrence>
+          args: Prisma.AvatarVideoReferenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAvatarVideoReference>
         }
         groupBy: {
-          args: Prisma.AvatarVideoRefrenceGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AvatarVideoRefrenceGroupByOutputType>[]
+          args: Prisma.AvatarVideoReferenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AvatarVideoReferenceGroupByOutputType>[]
         }
         count: {
-          args: Prisma.AvatarVideoRefrenceCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AvatarVideoRefrenceCountAggregateOutputType> | number
+          args: Prisma.AvatarVideoReferenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AvatarVideoReferenceCountAggregateOutputType> | number
         }
       }
     }
@@ -867,13 +867,13 @@ export const AvatarVideoScalarFieldEnum = {
 export type AvatarVideoScalarFieldEnum = (typeof AvatarVideoScalarFieldEnum)[keyof typeof AvatarVideoScalarFieldEnum]
 
 
-export const AvatarVideoRefrenceScalarFieldEnum = {
+export const AvatarVideoReferenceScalarFieldEnum = {
   id: 'id',
   avatarvideoId: 'avatarvideoId',
   avatarId: 'avatarId'
 } as const
 
-export type AvatarVideoRefrenceScalarFieldEnum = (typeof AvatarVideoRefrenceScalarFieldEnum)[keyof typeof AvatarVideoRefrenceScalarFieldEnum]
+export type AvatarVideoReferenceScalarFieldEnum = (typeof AvatarVideoReferenceScalarFieldEnum)[keyof typeof AvatarVideoReferenceScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1103,7 +1103,7 @@ export type GlobalOmitConfig = {
   avatar?: Prisma.AvatarOmit
   avatarImage?: Prisma.AvatarImageOmit
   avatarVideo?: Prisma.AvatarVideoOmit
-  avatarVideoRefrence?: Prisma.AvatarVideoRefrenceOmit
+  avatarVideoReference?: Prisma.AvatarVideoReferenceOmit
 }
 
 /* Types for Logging */
