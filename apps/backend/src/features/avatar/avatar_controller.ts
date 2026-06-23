@@ -63,5 +63,6 @@ export async function getAvatarHandler(req: Request, res: Response, next: NextFu
         imageId
       )
       res.json({ data: result })
-    } catch (err) { next(err) }
+    } catch (err) 
+      { next(err) }
   }

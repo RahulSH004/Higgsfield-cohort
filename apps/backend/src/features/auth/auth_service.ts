@@ -1,6 +1,7 @@
 import { prisma } from "../../../db";
 import bcrypt from 'bcrypt'
 import type { AuthSignInSchema, AuthSignupSchema } from "./auth_schema";
+import { AppError } from "../../middleware/error.middleware";
 
 const SALT_ROUND = '10';
 
@@ -10,7 +11,7 @@ export async function AuthSignup(input: AuthSignupSchema) {
         where:{email: input.email}
     })
     if(existing){
-        throw new Error('Email is already been Taken');
+        throw new AppError(409,'Email is already been Taken');
     }
     const hashpasword = await bcrypt.hash(input.password , SALT_ROUND)
     try {
@@ -29,7 +30,7 @@ export async function AuthSignup(input: AuthSignupSchema) {
         })
         return user; 
     }catch(error){
-        throw new Error('SERVER ERROR');
+        throw new AppError(500,'SERVER ERROR');
     }
 }
 
@@ -38,11 +39,11 @@ export async function AuthSignIn(input: AuthSignInSchema){
         where:{email : input.email}
     })
     if(!user) {
-        throw new Error('Invalid Creditanials')
+        throw new AppError(401, 'Invalid Creditanials')
     }
     const passwordmatch = await bcrypt.compare(input.password, user.password)
     if(!passwordmatch){
-        throw new Error('Invalid Creds')
+        throw new AppError(401,'Invalid Creds')
     }
     const {password: _, ...safeuser} = user
     return safeuser;
