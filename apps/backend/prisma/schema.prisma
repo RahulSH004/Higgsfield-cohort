@@ -26,7 +26,6 @@ model Avatar{
   name     String 
   createdAt DateTime  @default(now())
   avatarimages AvatarImage[]
-  avatarvideo  AvatarVideo[]
   avatarvideorefrence   AvatarVideoReference[]
   user     User @relation(fields: [userId] , references: [id])
 }
@@ -44,7 +43,6 @@ model AvatarImage{
 model AvatarVideo {
   id      String   @id   @default(cuid())
   userId  String
-  avatarId  String
   prompt    String
   startFrame  String?
   endFrame    String?
@@ -55,7 +53,6 @@ model AvatarVideo {
   remixFormId  String?
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-  avatar Avatar  @relation(fields: [avatarId], references: [id])
   avatarVideoRefrence AvatarVideoReference[]
   user     User @relation(fields: [userId] , references: [id])
   remixedFrom   AvatarVideo?      @relation("VideoRemix", fields: [remixFormId], references: [id])
@@ -68,6 +65,9 @@ model AvatarVideoReference {
   avatarId     String
   avatar    Avatar   @relation(fields: [avatarId], references: [id])
   avatarvideo  AvatarVideo  @relation(fields: [avatarvideoId], references: [id])
+
+  @@index([avatarId])
+  @@index([avatarvideoId])
 }
 
 enum AvatarImageType {

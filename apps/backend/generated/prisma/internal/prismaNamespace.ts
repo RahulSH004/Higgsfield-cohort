@@ -854,7 +854,6 @@ export type AvatarImageScalarFieldEnum = (typeof AvatarImageScalarFieldEnum)[key
 export const AvatarVideoScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  avatarId: 'avatarId',
   prompt: 'prompt',
   startFrame: 'startFrame',
   endFrame: 'endFrame',
