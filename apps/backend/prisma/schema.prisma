@@ -50,11 +50,16 @@ model AvatarVideo {
   endFrame    String?
   aspect_ratio  Aspectratio
   status      AvatarVideoStatus
+  VideoUrl   String?
+  isPublic  Boolean   @default(false)
+  remixFormId  String?
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
   avatar Avatar  @relation(fields: [avatarId], references: [id])
   avatarVideoRefrence AvatarVideoReference[]
   user     User @relation(fields: [userId] , references: [id])
+  remixedFrom   AvatarVideo?      @relation("VideoRemix", fields: [remixFormId], references: [id])
+  remixes       AvatarVideo[]     @relation("VideoRemix")
 }
 
 model AvatarVideoReference {

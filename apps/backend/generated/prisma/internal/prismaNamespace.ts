@@ -860,6 +860,9 @@ export const AvatarVideoScalarFieldEnum = {
   endFrame: 'endFrame',
   aspect_ratio: 'aspect_ratio',
   status: 'status',
+  VideoUrl: 'VideoUrl',
+  isPublic: 'isPublic',
+  remixFormId: 'remixFormId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -973,6 +976,13 @@ export type EnumAvatarVideoStatusFieldRefInput<$PrismaModel> = FieldRefInputType
  * Reference to a field of type 'AvatarVideoStatus[]'
  */
 export type ListEnumAvatarVideoStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AvatarVideoStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 

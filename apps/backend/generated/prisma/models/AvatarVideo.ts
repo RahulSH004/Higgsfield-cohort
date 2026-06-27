@@ -33,6 +33,9 @@ export type AvatarVideoMinAggregateOutputType = {
   endFrame: string | null
   aspect_ratio: $Enums.Aspectratio | null
   status: $Enums.AvatarVideoStatus | null
+  VideoUrl: string | null
+  isPublic: boolean | null
+  remixFormId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -46,6 +49,9 @@ export type AvatarVideoMaxAggregateOutputType = {
   endFrame: string | null
   aspect_ratio: $Enums.Aspectratio | null
   status: $Enums.AvatarVideoStatus | null
+  VideoUrl: string | null
+  isPublic: boolean | null
+  remixFormId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -59,6 +65,9 @@ export type AvatarVideoCountAggregateOutputType = {
   endFrame: number
   aspect_ratio: number
   status: number
+  VideoUrl: number
+  isPublic: number
+  remixFormId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -74,6 +83,9 @@ export type AvatarVideoMinAggregateInputType = {
   endFrame?: true
   aspect_ratio?: true
   status?: true
+  VideoUrl?: true
+  isPublic?: true
+  remixFormId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -87,6 +99,9 @@ export type AvatarVideoMaxAggregateInputType = {
   endFrame?: true
   aspect_ratio?: true
   status?: true
+  VideoUrl?: true
+  isPublic?: true
+  remixFormId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -100,6 +115,9 @@ export type AvatarVideoCountAggregateInputType = {
   endFrame?: true
   aspect_ratio?: true
   status?: true
+  VideoUrl?: true
+  isPublic?: true
+  remixFormId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -186,6 +204,9 @@ export type AvatarVideoGroupByOutputType = {
   endFrame: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl: string | null
+  isPublic: boolean
+  remixFormId: string | null
   createdAt: Date
   updatedAt: Date
   _count: AvatarVideoCountAggregateOutputType | null
@@ -220,11 +241,16 @@ export type AvatarVideoWhereInput = {
   endFrame?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
   aspect_ratio?: Prisma.EnumAspectratioFilter<"AvatarVideo"> | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFilter<"AvatarVideo"> | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
+  isPublic?: Prisma.BoolFilter<"AvatarVideo"> | boolean
+  remixFormId?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
   createdAt?: Prisma.DateTimeFilter<"AvatarVideo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AvatarVideo"> | Date | string
   avatar?: Prisma.XOR<Prisma.AvatarScalarRelationFilter, Prisma.AvatarWhereInput>
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceListRelationFilter
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  remixedFrom?: Prisma.XOR<Prisma.AvatarVideoNullableScalarRelationFilter, Prisma.AvatarVideoWhereInput> | null
+  remixes?: Prisma.AvatarVideoListRelationFilter
 }
 
 export type AvatarVideoOrderByWithRelationInput = {
@@ -236,11 +262,16 @@ export type AvatarVideoOrderByWithRelationInput = {
   endFrame?: Prisma.SortOrderInput | Prisma.SortOrder
   aspect_ratio?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  VideoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  remixFormId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   avatar?: Prisma.AvatarOrderByWithRelationInput
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceOrderByRelationAggregateInput
   user?: Prisma.UserOrderByWithRelationInput
+  remixedFrom?: Prisma.AvatarVideoOrderByWithRelationInput
+  remixes?: Prisma.AvatarVideoOrderByRelationAggregateInput
 }
 
 export type AvatarVideoWhereUniqueInput = Prisma.AtLeast<{
@@ -255,11 +286,16 @@ export type AvatarVideoWhereUniqueInput = Prisma.AtLeast<{
   endFrame?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
   aspect_ratio?: Prisma.EnumAspectratioFilter<"AvatarVideo"> | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFilter<"AvatarVideo"> | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
+  isPublic?: Prisma.BoolFilter<"AvatarVideo"> | boolean
+  remixFormId?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
   createdAt?: Prisma.DateTimeFilter<"AvatarVideo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AvatarVideo"> | Date | string
   avatar?: Prisma.XOR<Prisma.AvatarScalarRelationFilter, Prisma.AvatarWhereInput>
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceListRelationFilter
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  remixedFrom?: Prisma.XOR<Prisma.AvatarVideoNullableScalarRelationFilter, Prisma.AvatarVideoWhereInput> | null
+  remixes?: Prisma.AvatarVideoListRelationFilter
 }, "id">
 
 export type AvatarVideoOrderByWithAggregationInput = {
@@ -271,6 +307,9 @@ export type AvatarVideoOrderByWithAggregationInput = {
   endFrame?: Prisma.SortOrderInput | Prisma.SortOrder
   aspect_ratio?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  VideoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  remixFormId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.AvatarVideoCountOrderByAggregateInput
@@ -290,6 +329,9 @@ export type AvatarVideoScalarWhereWithAggregatesInput = {
   endFrame?: Prisma.StringNullableWithAggregatesFilter<"AvatarVideo"> | string | null
   aspect_ratio?: Prisma.EnumAspectratioWithAggregatesFilter<"AvatarVideo"> | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusWithAggregatesFilter<"AvatarVideo"> | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.StringNullableWithAggregatesFilter<"AvatarVideo"> | string | null
+  isPublic?: Prisma.BoolWithAggregatesFilter<"AvatarVideo"> | boolean
+  remixFormId?: Prisma.StringNullableWithAggregatesFilter<"AvatarVideo"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"AvatarVideo"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"AvatarVideo"> | Date | string
 }
@@ -301,11 +343,15 @@ export type AvatarVideoCreateInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   avatar: Prisma.AvatarCreateNestedOneWithoutAvatarvideoInput
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceCreateNestedManyWithoutAvatarvideoInput
   user: Prisma.UserCreateNestedOneWithoutAvatarvideosInput
+  remixedFrom?: Prisma.AvatarVideoCreateNestedOneWithoutRemixesInput
+  remixes?: Prisma.AvatarVideoCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoUncheckedCreateInput = {
@@ -317,9 +363,13 @@ export type AvatarVideoUncheckedCreateInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedCreateNestedManyWithoutAvatarvideoInput
+  remixes?: Prisma.AvatarVideoUncheckedCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoUpdateInput = {
@@ -329,11 +379,15 @@ export type AvatarVideoUpdateInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarvideoNestedInput
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUpdateManyWithoutAvatarvideoNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAvatarvideosNestedInput
+  remixedFrom?: Prisma.AvatarVideoUpdateOneWithoutRemixesNestedInput
+  remixes?: Prisma.AvatarVideoUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoUncheckedUpdateInput = {
@@ -345,9 +399,13 @@ export type AvatarVideoUncheckedUpdateInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedUpdateManyWithoutAvatarvideoNestedInput
+  remixes?: Prisma.AvatarVideoUncheckedUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoCreateManyInput = {
@@ -359,6 +417,9 @@ export type AvatarVideoCreateManyInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -370,6 +431,8 @@ export type AvatarVideoUpdateManyMutationInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -383,6 +446,9 @@ export type AvatarVideoUncheckedUpdateManyInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -397,6 +463,11 @@ export type AvatarVideoOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type AvatarVideoNullableScalarRelationFilter = {
+  is?: Prisma.AvatarVideoWhereInput | null
+  isNot?: Prisma.AvatarVideoWhereInput | null
+}
+
 export type AvatarVideoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -406,6 +477,9 @@ export type AvatarVideoCountOrderByAggregateInput = {
   endFrame?: Prisma.SortOrder
   aspect_ratio?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  VideoUrl?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  remixFormId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -419,6 +493,9 @@ export type AvatarVideoMaxOrderByAggregateInput = {
   endFrame?: Prisma.SortOrder
   aspect_ratio?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  VideoUrl?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  remixFormId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -432,6 +509,9 @@ export type AvatarVideoMinOrderByAggregateInput = {
   endFrame?: Prisma.SortOrder
   aspect_ratio?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  VideoUrl?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  remixFormId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -525,12 +605,74 @@ export type AvatarVideoUncheckedUpdateManyWithoutAvatarNestedInput = {
   deleteMany?: Prisma.AvatarVideoScalarWhereInput | Prisma.AvatarVideoScalarWhereInput[]
 }
 
+export type AvatarVideoCreateNestedOneWithoutRemixesInput = {
+  create?: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixesInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixesInput>
+  connectOrCreate?: Prisma.AvatarVideoCreateOrConnectWithoutRemixesInput
+  connect?: Prisma.AvatarVideoWhereUniqueInput
+}
+
+export type AvatarVideoCreateNestedManyWithoutRemixedFromInput = {
+  create?: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput> | Prisma.AvatarVideoCreateWithoutRemixedFromInput[] | Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput[]
+  connectOrCreate?: Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput | Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput[]
+  createMany?: Prisma.AvatarVideoCreateManyRemixedFromInputEnvelope
+  connect?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+}
+
+export type AvatarVideoUncheckedCreateNestedManyWithoutRemixedFromInput = {
+  create?: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput> | Prisma.AvatarVideoCreateWithoutRemixedFromInput[] | Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput[]
+  connectOrCreate?: Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput | Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput[]
+  createMany?: Prisma.AvatarVideoCreateManyRemixedFromInputEnvelope
+  connect?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+}
+
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
 export type EnumAvatarVideoStatusFieldUpdateOperationsInput = {
   set?: $Enums.AvatarVideoStatus
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
+export type AvatarVideoUpdateOneWithoutRemixesNestedInput = {
+  create?: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixesInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixesInput>
+  connectOrCreate?: Prisma.AvatarVideoCreateOrConnectWithoutRemixesInput
+  upsert?: Prisma.AvatarVideoUpsertWithoutRemixesInput
+  disconnect?: Prisma.AvatarVideoWhereInput | boolean
+  delete?: Prisma.AvatarVideoWhereInput | boolean
+  connect?: Prisma.AvatarVideoWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AvatarVideoUpdateToOneWithWhereWithoutRemixesInput, Prisma.AvatarVideoUpdateWithoutRemixesInput>, Prisma.AvatarVideoUncheckedUpdateWithoutRemixesInput>
+}
+
+export type AvatarVideoUpdateManyWithoutRemixedFromNestedInput = {
+  create?: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput> | Prisma.AvatarVideoCreateWithoutRemixedFromInput[] | Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput[]
+  connectOrCreate?: Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput | Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput[]
+  upsert?: Prisma.AvatarVideoUpsertWithWhereUniqueWithoutRemixedFromInput | Prisma.AvatarVideoUpsertWithWhereUniqueWithoutRemixedFromInput[]
+  createMany?: Prisma.AvatarVideoCreateManyRemixedFromInputEnvelope
+  set?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  disconnect?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  delete?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  connect?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  update?: Prisma.AvatarVideoUpdateWithWhereUniqueWithoutRemixedFromInput | Prisma.AvatarVideoUpdateWithWhereUniqueWithoutRemixedFromInput[]
+  updateMany?: Prisma.AvatarVideoUpdateManyWithWhereWithoutRemixedFromInput | Prisma.AvatarVideoUpdateManyWithWhereWithoutRemixedFromInput[]
+  deleteMany?: Prisma.AvatarVideoScalarWhereInput | Prisma.AvatarVideoScalarWhereInput[]
+}
+
+export type AvatarVideoUncheckedUpdateManyWithoutRemixedFromNestedInput = {
+  create?: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput> | Prisma.AvatarVideoCreateWithoutRemixedFromInput[] | Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput[]
+  connectOrCreate?: Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput | Prisma.AvatarVideoCreateOrConnectWithoutRemixedFromInput[]
+  upsert?: Prisma.AvatarVideoUpsertWithWhereUniqueWithoutRemixedFromInput | Prisma.AvatarVideoUpsertWithWhereUniqueWithoutRemixedFromInput[]
+  createMany?: Prisma.AvatarVideoCreateManyRemixedFromInputEnvelope
+  set?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  disconnect?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  delete?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  connect?: Prisma.AvatarVideoWhereUniqueInput | Prisma.AvatarVideoWhereUniqueInput[]
+  update?: Prisma.AvatarVideoUpdateWithWhereUniqueWithoutRemixedFromInput | Prisma.AvatarVideoUpdateWithWhereUniqueWithoutRemixedFromInput[]
+  updateMany?: Prisma.AvatarVideoUpdateManyWithWhereWithoutRemixedFromInput | Prisma.AvatarVideoUpdateManyWithWhereWithoutRemixedFromInput[]
+  deleteMany?: Prisma.AvatarVideoScalarWhereInput | Prisma.AvatarVideoScalarWhereInput[]
 }
 
 export type AvatarVideoCreateNestedOneWithoutAvatarVideoRefrenceInput = {
@@ -554,10 +696,14 @@ export type AvatarVideoCreateWithoutUserInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   avatar: Prisma.AvatarCreateNestedOneWithoutAvatarvideoInput
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceCreateNestedManyWithoutAvatarvideoInput
+  remixedFrom?: Prisma.AvatarVideoCreateNestedOneWithoutRemixesInput
+  remixes?: Prisma.AvatarVideoCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoUncheckedCreateWithoutUserInput = {
@@ -568,9 +714,13 @@ export type AvatarVideoUncheckedCreateWithoutUserInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedCreateNestedManyWithoutAvatarvideoInput
+  remixes?: Prisma.AvatarVideoUncheckedCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoCreateOrConnectWithoutUserInput = {
@@ -611,6 +761,9 @@ export type AvatarVideoScalarWhereInput = {
   endFrame?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
   aspect_ratio?: Prisma.EnumAspectratioFilter<"AvatarVideo"> | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFilter<"AvatarVideo"> | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
+  isPublic?: Prisma.BoolFilter<"AvatarVideo"> | boolean
+  remixFormId?: Prisma.StringNullableFilter<"AvatarVideo"> | string | null
   createdAt?: Prisma.DateTimeFilter<"AvatarVideo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AvatarVideo"> | Date | string
 }
@@ -622,10 +775,14 @@ export type AvatarVideoCreateWithoutAvatarInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceCreateNestedManyWithoutAvatarvideoInput
   user: Prisma.UserCreateNestedOneWithoutAvatarvideosInput
+  remixedFrom?: Prisma.AvatarVideoCreateNestedOneWithoutRemixesInput
+  remixes?: Prisma.AvatarVideoCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoUncheckedCreateWithoutAvatarInput = {
@@ -636,9 +793,13 @@ export type AvatarVideoUncheckedCreateWithoutAvatarInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedCreateNestedManyWithoutAvatarvideoInput
+  remixes?: Prisma.AvatarVideoUncheckedCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoCreateOrConnectWithoutAvatarInput = {
@@ -667,6 +828,150 @@ export type AvatarVideoUpdateManyWithWhereWithoutAvatarInput = {
   data: Prisma.XOR<Prisma.AvatarVideoUpdateManyMutationInput, Prisma.AvatarVideoUncheckedUpdateManyWithoutAvatarInput>
 }
 
+export type AvatarVideoCreateWithoutRemixesInput = {
+  id?: string
+  prompt: string
+  startFrame?: string | null
+  endFrame?: string | null
+  aspect_ratio: $Enums.Aspectratio
+  status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  avatar: Prisma.AvatarCreateNestedOneWithoutAvatarvideoInput
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceCreateNestedManyWithoutAvatarvideoInput
+  user: Prisma.UserCreateNestedOneWithoutAvatarvideosInput
+  remixedFrom?: Prisma.AvatarVideoCreateNestedOneWithoutRemixesInput
+}
+
+export type AvatarVideoUncheckedCreateWithoutRemixesInput = {
+  id?: string
+  userId: string
+  avatarId: string
+  prompt: string
+  startFrame?: string | null
+  endFrame?: string | null
+  aspect_ratio: $Enums.Aspectratio
+  status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedCreateNestedManyWithoutAvatarvideoInput
+}
+
+export type AvatarVideoCreateOrConnectWithoutRemixesInput = {
+  where: Prisma.AvatarVideoWhereUniqueInput
+  create: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixesInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixesInput>
+}
+
+export type AvatarVideoCreateWithoutRemixedFromInput = {
+  id?: string
+  prompt: string
+  startFrame?: string | null
+  endFrame?: string | null
+  aspect_ratio: $Enums.Aspectratio
+  status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  avatar: Prisma.AvatarCreateNestedOneWithoutAvatarvideoInput
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceCreateNestedManyWithoutAvatarvideoInput
+  user: Prisma.UserCreateNestedOneWithoutAvatarvideosInput
+  remixes?: Prisma.AvatarVideoCreateNestedManyWithoutRemixedFromInput
+}
+
+export type AvatarVideoUncheckedCreateWithoutRemixedFromInput = {
+  id?: string
+  userId: string
+  avatarId: string
+  prompt: string
+  startFrame?: string | null
+  endFrame?: string | null
+  aspect_ratio: $Enums.Aspectratio
+  status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedCreateNestedManyWithoutAvatarvideoInput
+  remixes?: Prisma.AvatarVideoUncheckedCreateNestedManyWithoutRemixedFromInput
+}
+
+export type AvatarVideoCreateOrConnectWithoutRemixedFromInput = {
+  where: Prisma.AvatarVideoWhereUniqueInput
+  create: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput>
+}
+
+export type AvatarVideoCreateManyRemixedFromInputEnvelope = {
+  data: Prisma.AvatarVideoCreateManyRemixedFromInput | Prisma.AvatarVideoCreateManyRemixedFromInput[]
+  skipDuplicates?: boolean
+}
+
+export type AvatarVideoUpsertWithoutRemixesInput = {
+  update: Prisma.XOR<Prisma.AvatarVideoUpdateWithoutRemixesInput, Prisma.AvatarVideoUncheckedUpdateWithoutRemixesInput>
+  create: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixesInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixesInput>
+  where?: Prisma.AvatarVideoWhereInput
+}
+
+export type AvatarVideoUpdateToOneWithWhereWithoutRemixesInput = {
+  where?: Prisma.AvatarVideoWhereInput
+  data: Prisma.XOR<Prisma.AvatarVideoUpdateWithoutRemixesInput, Prisma.AvatarVideoUncheckedUpdateWithoutRemixesInput>
+}
+
+export type AvatarVideoUpdateWithoutRemixesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  startFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarvideoNestedInput
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceUpdateManyWithoutAvatarvideoNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutAvatarvideosNestedInput
+  remixedFrom?: Prisma.AvatarVideoUpdateOneWithoutRemixesNestedInput
+}
+
+export type AvatarVideoUncheckedUpdateWithoutRemixesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarId?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  startFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedUpdateManyWithoutAvatarvideoNestedInput
+}
+
+export type AvatarVideoUpsertWithWhereUniqueWithoutRemixedFromInput = {
+  where: Prisma.AvatarVideoWhereUniqueInput
+  update: Prisma.XOR<Prisma.AvatarVideoUpdateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedUpdateWithoutRemixedFromInput>
+  create: Prisma.XOR<Prisma.AvatarVideoCreateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedCreateWithoutRemixedFromInput>
+}
+
+export type AvatarVideoUpdateWithWhereUniqueWithoutRemixedFromInput = {
+  where: Prisma.AvatarVideoWhereUniqueInput
+  data: Prisma.XOR<Prisma.AvatarVideoUpdateWithoutRemixedFromInput, Prisma.AvatarVideoUncheckedUpdateWithoutRemixedFromInput>
+}
+
+export type AvatarVideoUpdateManyWithWhereWithoutRemixedFromInput = {
+  where: Prisma.AvatarVideoScalarWhereInput
+  data: Prisma.XOR<Prisma.AvatarVideoUpdateManyMutationInput, Prisma.AvatarVideoUncheckedUpdateManyWithoutRemixedFromInput>
+}
+
 export type AvatarVideoCreateWithoutAvatarVideoRefrenceInput = {
   id?: string
   prompt: string
@@ -674,10 +979,14 @@ export type AvatarVideoCreateWithoutAvatarVideoRefrenceInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   avatar: Prisma.AvatarCreateNestedOneWithoutAvatarvideoInput
   user: Prisma.UserCreateNestedOneWithoutAvatarvideosInput
+  remixedFrom?: Prisma.AvatarVideoCreateNestedOneWithoutRemixesInput
+  remixes?: Prisma.AvatarVideoCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoUncheckedCreateWithoutAvatarVideoRefrenceInput = {
@@ -689,8 +998,12 @@ export type AvatarVideoUncheckedCreateWithoutAvatarVideoRefrenceInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  remixes?: Prisma.AvatarVideoUncheckedCreateNestedManyWithoutRemixedFromInput
 }
 
 export type AvatarVideoCreateOrConnectWithoutAvatarVideoRefrenceInput = {
@@ -716,10 +1029,14 @@ export type AvatarVideoUpdateWithoutAvatarVideoRefrenceInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarvideoNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAvatarvideosNestedInput
+  remixedFrom?: Prisma.AvatarVideoUpdateOneWithoutRemixesNestedInput
+  remixes?: Prisma.AvatarVideoUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoUncheckedUpdateWithoutAvatarVideoRefrenceInput = {
@@ -731,8 +1048,12 @@ export type AvatarVideoUncheckedUpdateWithoutAvatarVideoRefrenceInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  remixes?: Prisma.AvatarVideoUncheckedUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoCreateManyUserInput = {
@@ -743,6 +1064,9 @@ export type AvatarVideoCreateManyUserInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -754,10 +1078,14 @@ export type AvatarVideoUpdateWithoutUserInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarvideoNestedInput
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUpdateManyWithoutAvatarvideoNestedInput
+  remixedFrom?: Prisma.AvatarVideoUpdateOneWithoutRemixesNestedInput
+  remixes?: Prisma.AvatarVideoUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoUncheckedUpdateWithoutUserInput = {
@@ -768,9 +1096,13 @@ export type AvatarVideoUncheckedUpdateWithoutUserInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedUpdateManyWithoutAvatarvideoNestedInput
+  remixes?: Prisma.AvatarVideoUncheckedUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoUncheckedUpdateManyWithoutUserInput = {
@@ -781,6 +1113,9 @@ export type AvatarVideoUncheckedUpdateManyWithoutUserInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -793,6 +1128,9 @@ export type AvatarVideoCreateManyAvatarInput = {
   endFrame?: string | null
   aspect_ratio: $Enums.Aspectratio
   status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  remixFormId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -804,10 +1142,14 @@ export type AvatarVideoUpdateWithoutAvatarInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUpdateManyWithoutAvatarvideoNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAvatarvideosNestedInput
+  remixedFrom?: Prisma.AvatarVideoUpdateOneWithoutRemixesNestedInput
+  remixes?: Prisma.AvatarVideoUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoUncheckedUpdateWithoutAvatarInput = {
@@ -818,9 +1160,13 @@ export type AvatarVideoUncheckedUpdateWithoutAvatarInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedUpdateManyWithoutAvatarvideoNestedInput
+  remixes?: Prisma.AvatarVideoUncheckedUpdateManyWithoutRemixedFromNestedInput
 }
 
 export type AvatarVideoUncheckedUpdateManyWithoutAvatarInput = {
@@ -831,6 +1177,73 @@ export type AvatarVideoUncheckedUpdateManyWithoutAvatarInput = {
   endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
   status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remixFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type AvatarVideoCreateManyRemixedFromInput = {
+  id?: string
+  userId: string
+  avatarId: string
+  prompt: string
+  startFrame?: string | null
+  endFrame?: string | null
+  aspect_ratio: $Enums.Aspectratio
+  status: $Enums.AvatarVideoStatus
+  VideoUrl?: string | null
+  isPublic?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type AvatarVideoUpdateWithoutRemixedFromInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  startFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avatar?: Prisma.AvatarUpdateOneRequiredWithoutAvatarvideoNestedInput
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceUpdateManyWithoutAvatarvideoNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutAvatarvideosNestedInput
+  remixes?: Prisma.AvatarVideoUpdateManyWithoutRemixedFromNestedInput
+}
+
+export type AvatarVideoUncheckedUpdateWithoutRemixedFromInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarId?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  startFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  avatarVideoRefrence?: Prisma.AvatarVideoReferenceUncheckedUpdateManyWithoutAvatarvideoNestedInput
+  remixes?: Prisma.AvatarVideoUncheckedUpdateManyWithoutRemixedFromNestedInput
+}
+
+export type AvatarVideoUncheckedUpdateManyWithoutRemixedFromInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  avatarId?: Prisma.StringFieldUpdateOperationsInput | string
+  prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  startFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  endFrame?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  aspect_ratio?: Prisma.EnumAspectratioFieldUpdateOperationsInput | $Enums.Aspectratio
+  status?: Prisma.EnumAvatarVideoStatusFieldUpdateOperationsInput | $Enums.AvatarVideoStatus
+  VideoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -842,10 +1255,12 @@ export type AvatarVideoUncheckedUpdateManyWithoutAvatarInput = {
 
 export type AvatarVideoCountOutputType = {
   avatarVideoRefrence: number
+  remixes: number
 }
 
 export type AvatarVideoCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   avatarVideoRefrence?: boolean | AvatarVideoCountOutputTypeCountAvatarVideoRefrenceArgs
+  remixes?: boolean | AvatarVideoCountOutputTypeCountRemixesArgs
 }
 
 /**
@@ -865,6 +1280,13 @@ export type AvatarVideoCountOutputTypeCountAvatarVideoRefrenceArgs<ExtArgs exten
   where?: Prisma.AvatarVideoReferenceWhereInput
 }
 
+/**
+ * AvatarVideoCountOutputType without action
+ */
+export type AvatarVideoCountOutputTypeCountRemixesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AvatarVideoWhereInput
+}
+
 
 export type AvatarVideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -875,11 +1297,16 @@ export type AvatarVideoSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   endFrame?: boolean
   aspect_ratio?: boolean
   status?: boolean
+  VideoUrl?: boolean
+  isPublic?: boolean
+  remixFormId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
   avatarVideoRefrence?: boolean | Prisma.AvatarVideo$avatarVideoRefrenceArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  remixedFrom?: boolean | Prisma.AvatarVideo$remixedFromArgs<ExtArgs>
+  remixes?: boolean | Prisma.AvatarVideo$remixesArgs<ExtArgs>
   _count?: boolean | Prisma.AvatarVideoCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["avatarVideo"]>
 
@@ -892,10 +1319,14 @@ export type AvatarVideoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   endFrame?: boolean
   aspect_ratio?: boolean
   status?: boolean
+  VideoUrl?: boolean
+  isPublic?: boolean
+  remixFormId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  remixedFrom?: boolean | Prisma.AvatarVideo$remixedFromArgs<ExtArgs>
 }, ExtArgs["result"]["avatarVideo"]>
 
 export type AvatarVideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -907,10 +1338,14 @@ export type AvatarVideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   endFrame?: boolean
   aspect_ratio?: boolean
   status?: boolean
+  VideoUrl?: boolean
+  isPublic?: boolean
+  remixFormId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  remixedFrom?: boolean | Prisma.AvatarVideo$remixedFromArgs<ExtArgs>
 }, ExtArgs["result"]["avatarVideo"]>
 
 export type AvatarVideoSelectScalar = {
@@ -922,24 +1357,31 @@ export type AvatarVideoSelectScalar = {
   endFrame?: boolean
   aspect_ratio?: boolean
   status?: boolean
+  VideoUrl?: boolean
+  isPublic?: boolean
+  remixFormId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type AvatarVideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "avatarId" | "prompt" | "startFrame" | "endFrame" | "aspect_ratio" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["avatarVideo"]>
+export type AvatarVideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "avatarId" | "prompt" | "startFrame" | "endFrame" | "aspect_ratio" | "status" | "VideoUrl" | "isPublic" | "remixFormId" | "createdAt" | "updatedAt", ExtArgs["result"]["avatarVideo"]>
 export type AvatarVideoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
   avatarVideoRefrence?: boolean | Prisma.AvatarVideo$avatarVideoRefrenceArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  remixedFrom?: boolean | Prisma.AvatarVideo$remixedFromArgs<ExtArgs>
+  remixes?: boolean | Prisma.AvatarVideo$remixesArgs<ExtArgs>
   _count?: boolean | Prisma.AvatarVideoCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AvatarVideoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  remixedFrom?: boolean | Prisma.AvatarVideo$remixedFromArgs<ExtArgs>
 }
 export type AvatarVideoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   avatar?: boolean | Prisma.AvatarDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  remixedFrom?: boolean | Prisma.AvatarVideo$remixedFromArgs<ExtArgs>
 }
 
 export type $AvatarVideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -948,6 +1390,8 @@ export type $AvatarVideoPayload<ExtArgs extends runtime.Types.Extensions.Interna
     avatar: Prisma.$AvatarPayload<ExtArgs>
     avatarVideoRefrence: Prisma.$AvatarVideoReferencePayload<ExtArgs>[]
     user: Prisma.$UserPayload<ExtArgs>
+    remixedFrom: Prisma.$AvatarVideoPayload<ExtArgs> | null
+    remixes: Prisma.$AvatarVideoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -958,6 +1402,9 @@ export type $AvatarVideoPayload<ExtArgs extends runtime.Types.Extensions.Interna
     endFrame: string | null
     aspect_ratio: $Enums.Aspectratio
     status: $Enums.AvatarVideoStatus
+    VideoUrl: string | null
+    isPublic: boolean
+    remixFormId: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["avatarVideo"]>
@@ -1357,6 +1804,8 @@ export interface Prisma__AvatarVideoClient<T, Null = never, ExtArgs extends runt
   avatar<T extends Prisma.AvatarDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AvatarDefaultArgs<ExtArgs>>): Prisma.Prisma__AvatarClient<runtime.Types.Result.GetResult<Prisma.$AvatarPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   avatarVideoRefrence<T extends Prisma.AvatarVideo$avatarVideoRefrenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AvatarVideo$avatarVideoRefrenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AvatarVideoReferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  remixedFrom<T extends Prisma.AvatarVideo$remixedFromArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AvatarVideo$remixedFromArgs<ExtArgs>>): Prisma.Prisma__AvatarVideoClient<runtime.Types.Result.GetResult<Prisma.$AvatarVideoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  remixes<T extends Prisma.AvatarVideo$remixesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AvatarVideo$remixesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AvatarVideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1394,6 +1843,9 @@ export interface AvatarVideoFieldRefs {
   readonly endFrame: Prisma.FieldRef<"AvatarVideo", 'String'>
   readonly aspect_ratio: Prisma.FieldRef<"AvatarVideo", 'Aspectratio'>
   readonly status: Prisma.FieldRef<"AvatarVideo", 'AvatarVideoStatus'>
+  readonly VideoUrl: Prisma.FieldRef<"AvatarVideo", 'String'>
+  readonly isPublic: Prisma.FieldRef<"AvatarVideo", 'Boolean'>
+  readonly remixFormId: Prisma.FieldRef<"AvatarVideo", 'String'>
   readonly createdAt: Prisma.FieldRef<"AvatarVideo", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"AvatarVideo", 'DateTime'>
 }
@@ -1818,6 +2270,49 @@ export type AvatarVideo$avatarVideoRefrenceArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.AvatarVideoReferenceScalarFieldEnum | Prisma.AvatarVideoReferenceScalarFieldEnum[]
+}
+
+/**
+ * AvatarVideo.remixedFrom
+ */
+export type AvatarVideo$remixedFromArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AvatarVideo
+   */
+  select?: Prisma.AvatarVideoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AvatarVideo
+   */
+  omit?: Prisma.AvatarVideoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AvatarVideoInclude<ExtArgs> | null
+  where?: Prisma.AvatarVideoWhereInput
+}
+
+/**
+ * AvatarVideo.remixes
+ */
+export type AvatarVideo$remixesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AvatarVideo
+   */
+  select?: Prisma.AvatarVideoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AvatarVideo
+   */
+  omit?: Prisma.AvatarVideoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AvatarVideoInclude<ExtArgs> | null
+  where?: Prisma.AvatarVideoWhereInput
+  orderBy?: Prisma.AvatarVideoOrderByWithRelationInput | Prisma.AvatarVideoOrderByWithRelationInput[]
+  cursor?: Prisma.AvatarVideoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AvatarVideoScalarFieldEnum | Prisma.AvatarVideoScalarFieldEnum[]
 }
 
 /**
