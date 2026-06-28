@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { globalErrorHandler } from "./src/middleware/error.middleware";
 import { authentication } from "./src/middleware/auth.middleware";
 import avatarRoute from "./src/features/avatar/avatar_routes";
+import videoRoute from "./src/features/video/video_routes";
 
 const app = express();
 const PORT = process.env.PORT
@@ -16,6 +17,7 @@ app.use('api/auth',authRoute)
 //protected route 
 
 app.use('api/avatars', authentication, avatarRoute)
+app.use('api/videos', authentication, videoRoute)
 
 
 app.use(globalErrorHandler)

@@ -44,7 +44,7 @@ export async function getPublicFeedHandler(req: Request, res: Response, next: Ne
     }
 }
 
-export async function getVideoRemixesHandler(req: Request, res: Response, next: NextFunction) {
+export async function VideoRemixesHandler(req: Request, res: Response, next: NextFunction) {
     try{
         const input = remixVideoSchema.parse(req.body);
         const videoId = req.params.videoId as string;
