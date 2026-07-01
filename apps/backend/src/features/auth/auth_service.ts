@@ -3,7 +3,8 @@ import bcrypt from 'bcrypt'
 import type { AuthSignInSchema, AuthSignupSchema } from "./auth_schema";
 import { AppError } from "../../middleware/error.middleware";
 
-const SALT_ROUND = '10';
+const SALT_ROUND = process.env.SALT_ROUND as string
+
 
 export async function AuthSignup(input: AuthSignupSchema) {
     
@@ -13,7 +14,8 @@ export async function AuthSignup(input: AuthSignupSchema) {
     if(existing){
         throw new AppError(409,'Email is already been Taken');
     }
-    const hashpasword = await bcrypt.hash(input.password , SALT_ROUND)
+    const salt =  parseInt(SALT_ROUND)
+    const hashpasword = await bcrypt.hash(input.password , salt)
     try {
         const user = await prisma.user.create({
             data:{

@@ -9,7 +9,7 @@ import videoRoute from "./src/features/video/video_routes";
 import './src/features/video/video_worker';
 
 const app = express();
-const PORT = process.env.PORT
+const PORT = process.env.PORT!;
 
 app.use(express.json())
 app.use(cookieParser())
